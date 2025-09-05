@@ -1,0 +1,495 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Bloomfield — Export-Ready Agriculture from Indonesia</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet">
+  <link rel="icon" href="assets/Bloomfield_Logo.png" type="image/png">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    
+  <meta property="og:title" content="Bloomfield — Export Ready Agriculture from Indonesia">
+  <meta property="og:description" content="Bloomfield connects Indonesia’s rich agricultural heritage to global markets. We partner with local farmers, apply rigorous quality control, and ensure traceable supply chains to deliver export‑ready products consistently.">
+  <meta property="og:image" content="https://bloomfield.skybox.ltd/assets/indonesian-fields.JPG">
+  <meta property="og:url" content="https://bloomfield.skybox.ltd/">
+  <meta property="og:type" content="website">
+
+  <style>
+    :root{
+      --bg:#0b1d12;          /* deep green */
+      --fg:#eaf7ec;          /* light text */
+      --muted:#b6d4bd;       /* muted text */
+      --brand:#6EE7B7;       /* accent mint */
+      --card:#0f2618;        /* card bg */
+      --card2:#112a1b;
+      --shadow:0 20px 40px rgba(0,0,0,.3);
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{margin:0;font-family:Inter,system-ui,-apple-system,Segoe UI,Roboto,Arial,sans-serif;background:var(--bg);color:var(--fg);}
+
+    /* Header */
+    .header{position:fixed;inset:0 auto auto 0; width:100%; z-index:20; backdrop-filter: blur(6px); background:rgba(11,29,18,.55); border-bottom:1px solid rgba(255,255,255,.06)}
+    .nav{max-width:1200px;margin:0 auto;display:flex;gap:16px;align-items:center;justify-content:space-between;padding:14px 20px}
+    .brand{display:flex;gap:10px;align-items:center;font-weight:700;letter-spacing:.2px}
+    /* .brand .logo{width:34px;height:34px;border-radius:10px;background: radial-gradient(80% 80% at 30% 20%, #8df7c8 0%, #1e7a4c 60%, #0d3d27 100%); box-shadow: var(--shadow)} */
+    .brand span{font-size:1.05rem}
+    .menu a{color:var(--fg);text-decoration:none;margin:0 10px;font-weight:600;opacity:.9}
+    .menu a:hover{opacity:1;color:var(--brand)}
+    .cta{display:flex;gap:10px;align-items:center}
+    .btn{border:1px solid rgba(255,255,255,.12);background:transparent;color:var(--fg);padding:10px 14px;border-radius:12px;text-decoration:none;font-weight:600}
+    .btn.primary{background:linear-gradient(135deg,#1aa76c,#2ad39d); color:#062313; border:none}
+    .btn:hover{transform: translateY(-1px); box-shadow:0 10px 24px rgba(0,0,0,.25)}
+
+    /* Hero */
+    canvas#bg{position:fixed; inset:0; z-index:0; display:block}
+    .hero{position:relative; z-index:1; min-height:92vh; display:grid; place-items:center; text-align:center; padding:120px 20px 40px}
+    .hero .inner{max-width:900px}
+    .kicker{display:inline-block; padding:6px 12px; border:1px solid rgba(255,255,255,.12); border-radius:999px; font-size:.85rem; color:var(--muted); margin-bottom:16px}
+    h1{font-size: clamp(2rem, 3.8vw, 3.2rem); line-height:1.15; margin:0 0 14px}
+    .sub{max-width:760px;margin:0 auto 22px; color:var(--muted); font-size: clamp(1rem, 1.2vw, 1.125rem)}
+
+    /* Sections */
+    section{position:relative; z-index:1; padding:80px 20px}
+    .container{max-width:1200px;margin:0 auto}
+
+    /* Products */
+    .grid{display:grid;grid-template-columns:repeat(12,1fr);gap:20px}
+    .card{grid-column: span 4; background:linear-gradient(180deg,var(--card),var(--card2)); border:1px solid rgba(255,255,255,.06); border-radius:18px; overflow:hidden; box-shadow: var(--shadow); transition: transform .25s ease}
+    .card:hover{transform: translateY(-4px)}
+    .thumb{aspect-ratio: 16/10; width:100%; display:block; object-fit:cover}
+    .pad{padding:18px}
+    .tag{display:inline-block; background: rgba(110,231,183,.15); color:var(--brand); padding:6px 10px; font-weight:700; border-radius:999px; font-size:.78rem}
+    .card h3{margin:10px 0 6px}
+    .card p{margin:0;color:var(--muted)}
+
+    /* About */
+    .about{display:grid; grid-template-columns: 1.1fr .9fr; gap:26px; align-items:center}
+    .about .box{background:linear-gradient(180deg,var(--card),var(--card2)); border:1px solid rgba(255,255,255,.06); border-radius:18px; padding:24px; box-shadow:var(--shadow)}
+    .about img{width:100%; border-radius:16px; box-shadow:var(--shadow); object-fit:cover}
+
+    /* Contact */
+    .contact{display:grid; grid-template-columns: .9fr 1.1fr; gap:26px}
+    form{background:linear-gradient(180deg,var(--card),var(--card2)); border:1px solid rgba(255,255,255,.06); padding:22px; border-radius:16px; box-shadow: var(--shadow)}
+    label{display:block; margin:10px 0 6px; font-weight:600}
+    input, textarea{width:100%; padding:12px 14px; border-radius:12px; border:1px solid rgba(255,255,255,.12); background:#0a1b12; color:var(--fg)}
+    textarea{min-height:120px}
+    .info{background:linear-gradient(180deg,var(--card),var(--card2)); border:1px solid rgba(255,255,255,.06); padding:22px; border-radius:16px; box-shadow: var(--shadow)}
+
+    /* Footer */
+    footer{padding:30px 20px; text-align:center; color:var(--muted)}
+
+    /* Utilities */
+    .center{text-align:center}
+    .spacer{height:20px}
+
+    a {
+  color: inherit;        /* Warna mengikuti teks sekitarnya */
+  text-decoration: none; /* Hilangkan underline */
+}
+
+a:hover {
+  color: var(--brand);   /* Bisa ganti warna saat hover */
+  text-decoration: underline; /* Opsional, muncul underline saat hover */
+}
+
+
+    /* Responsive */
+    @media (max-width: 980px){
+      .card{grid-column: span 6}
+      .about, .contact{grid-template-columns: 1fr}
+    }
+    @media (max-width: 640px){
+      .card{grid-column: span 12}
+      .menu{display:none}
+      .hero{padding-top:110px}
+    }
+    
+  </style>
+
+  <style>
+.video-section {
+  padding: 80px 20px;
+  
+  color: #f8fafc;
+}
+.video-section h2 {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+}
+.video-section p {
+  margin-bottom: 2rem;
+  color: #94a3b8;
+}
+.video-wrapper {
+  display: flex;
+  justify-content: center;
+}
+.video-wrapper video {
+  width: 100%;
+  max-width: 360px; /* iphone portrait width */
+  aspect-ratio: 9 / 16;
+  border-radius: 1rem;
+  box-shadow: 0 10px 25px rgba(0,0,0,0.6);
+}
+.brand .logo {
+  width: 34px;
+  height: 34px;
+  object-fit: contain;
+  border-radius: 8px;
+}
+/* tambahan responsive */
+@media (max-width: 768px) {
+  h1 { font-size: 1.8rem; }
+  .sub { font-size: 0.95rem; }
+
+  .video-wrapper {
+    display: flex;
+    flex-direction: row;
+    gap: 12px;
+    overflow-x: auto;
+    scroll-snap-type: x mandatory;
+    padding-bottom: 10px;
+  }
+  .video-wrapper video {
+    flex: 0 0 auto;
+    max-width: 260px;
+    border-radius: 12px;
+    scroll-snap-align: center;
+  }
+}
+
+@media (max-width: 480px) {
+  h1 { font-size: 1.5rem; }
+  .btn { padding: 8px 12px; font-size: 0.85rem; }
+  .hero { padding: 90px 16px 40px; }
+
+  .about img { max-height: 220px; object-fit: cover; }
+  .contact { gap: 16px; }
+}
+
+</style>
+</head>
+<body>
+  <!-- Header -->
+  <header class="header">
+    <nav class="nav">
+      <div class="brand">
+        <img class="logo" src="assets/Bloomfield_Logo.png" alt="Bloomfield Logo" loading="lazy" />
+        <span>Bloomfield</span>
+    </div>
+      <div class="menu" aria-label="Primary Navigation">
+        <a href="#about">About</a>
+        <a href="#products">Products</a>
+        <a href="#export">Export</a>
+        <a href="#contact">Contact</a>
+      </div>
+      <div class="cta">
+        <a class="btn" href="#export">Export Sheet</a>
+        <a class="btn primary" href="#contact">Get a Quote</a>
+      </div>
+    </nav>
+  </header>
+
+  <!-- Three.js Background -->
+  <canvas id="bg" aria-hidden="true"></canvas>
+
+  <!-- Hero -->
+  <section class="hero" id="home" role="banner">
+    <div class="inner">
+      <div class="kicker">Indonesia • Farm to World</div>
+      <h1>Export‑Ready Agriculture Products — Premium, Fresh, Trusted.</h1>
+      <p class="sub">We supply high‑quality <strong>Potatoes</strong>, <strong>Patchouli Oil</strong>, and <strong>Banana Leaves</strong> from Indonesia to global buyers. Sustainable sourcing, strict quality control, and reliable logistics.</p>
+      <div class="cta" style="justify-content:center; margin-top:10px">
+        <a class="btn primary" href="#products">Explore Products</a>
+        <a class="btn" href="#contact">Contact Sales</a>
+      </div>
+    </div>
+  </section>
+
+  <!-- Products -->
+  <section id="products">
+    <div class="container">
+      <div class="center">
+        <h2>Our Products</h2>
+        <p class="sub">Export‑grade commodities carefully selected for international standards.</p>
+      </div>
+      <div class="grid" style="margin-top:24px">
+        <!-- Potatoes -->
+        <article class="card" aria-label="Potatoes">
+          <img class="thumb" loading="lazy" alt="Potatoes" src="assets/potatoes.jpeg" />
+          <div class="pad">
+            <span class="tag">🥔 Potatoes</span>
+            <h3>Fresh Highland Potatoes</h3>
+            <p>Sorted by size & grade, soil‑free washing, export packaging. Suitable for retail & processing.</p>
+            <div class="spacer"></div>
+            <a class="btn" href="#contact">Request Spec Sheet</a>
+          </div>
+        </article>
+        <!-- Patchouli Oil -->
+        <article class="card" aria-label="Patchouli Oil">
+          <img class="thumb" loading="lazy" alt="Patchouli oil bottle" src="assets/patchouli.jpeg" />
+          <div class="pad">
+            <span class="tag">🌿 Patchouli Oil</span>
+            <h3>Premium Patchouli (Nilam)</h3>
+            <p>High patchouli alcohol content, consistent aroma profile, COA available. Cosmetic & fragrance grade.</p>
+            <div class="spacer"></div>
+            <a class="btn" href="#contact">Request COA</a>
+          </div>
+        </article>
+        <!-- Banana Leaves -->
+        <article class="card" aria-label="Banana Leaves">
+          <img class="thumb" loading="lazy" alt="Banana leaves" src="assets/banana-leaves.jpeg" />
+          <div class="pad">
+            <span class="tag">🍃 Banana Leaves</span>
+            <h3>Fresh Banana Leaves</h3>
+            <p>Trimmed, cleaned, and packed for culinary & packaging use. Custom sizing and export cartons.</p>
+            <div class="spacer"></div>
+            <a class="btn" href="#contact">Ask Pricing</a>
+          </div>
+        </article>
+      </div>
+    </div>
+  </section>
+
+  <!-- About -->
+  <section id="about">
+    <div class="container about">
+      <div class="box">
+        <h2>About Bloomfield</h2>
+        <p>Bloomfield connects Indonesia’s rich agricultural heritage to global markets. We partner with local farmers, apply rigorous quality control, and ensure traceable supply chains to deliver export‑ready products consistently.</p>
+        <ul style="margin:12px 0 0; padding-left:18px; color:var(--muted)">
+          <li>Export focus • B2B • Private label options</li>
+          <li>QC at source • Size grading • Packaging compliance</li>
+          <li>Documentation support • HS codes • Phytosanitary</li>
+        </ul>
+      </div>
+      <img alt="Indonesian fields" loading="lazy" src="assets/indonesian-fields.JPG"/>
+    </div>
+  </section>
+
+  
+  <!-- Section - Video -->
+  <section id="video" class="video-section">
+  <div class="container">
+    <h2 class="text-center">Inside Our Farms</h2>
+    <p class="text-center">Take a quick look at our farms and plantations, showcasing the quality, care, and processes behind our export-ready agricultural products.</p>
+        <!-- <div class="grid grid-cols-1 md:grid-cols-3 gap-6"> -->
+            <div class="video-wrapper">
+            <video controls playsinline preload="metadata" poster="assets/video-thumbnail.jpg" autoplay muted loop playsinline>
+                <source src="assets/IMG_0140.MOV" type="video/mp4">
+                Your browser does not support the video player.
+            </video>
+            
+            <video controls playsinline preload="metadata" poster="assets/video-thumbnail.jpg" autoplay muted loop playsinline>
+                <source src="assets/IMG_0149.MOV" type="video/mp4">
+                Your browser does not support the video player.
+            </video>
+            
+            <video controls playsinline preload="metadata" poster="assets/video-thumbnail.jpg" autoplay muted loop playsinline>
+                <source src="assets/IMG_0165.MOV" type="video/mp4">
+                Your browser does not support the video player.
+            </video>
+        </div>
+    <!-- </div> -->
+  </div>
+</section>
+
+  <!-- Export -->
+  <section id="export">
+    <div class="container">
+      <div class="center">
+        <h2>Export & Logistics</h2>
+        <p class="sub">Incoterms: EXW • FOB • CIF. Shipping by air/sea. Documents: Invoice, Packing List, COO, Phytosanitary, MSDS/COA (for oil).</p>
+      </div>
+      <div class="grid" style="margin-top:20px">
+        <div class="card" style="grid-column: span 6">
+          <div class="pad">
+            <h3>Quality Standards</h3>
+            <p class="sub">Size grading, moisture control, visual inspection, random sampling. Photos & videos prior to shipment.</p>
+          </div>
+        </div>
+        <div class="card" style="grid-column: span 6">
+          <div class="pad">
+            <h3>Packaging</h3>
+            <p class="sub">Retail or bulk options: mesh bags (potatoes), food‑safe cartons (banana leaves), drums/IBC (patchouli oil).</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+
+<!-- Contact -->
+<section id="contact">
+  <div class="container contact" style="display:grid; grid-template-columns:1fr 1fr; gap:32px; padding:60px 20px;">
+    
+    <!-- contact.html -->
+<form action="/send_mail" method="POST" 
+      style="background:linear-gradient(180deg,#0f2618,#112a1b); border:1px solid rgba(255,255,255,.06); padding:30px; border-radius:16px; box-shadow:0 20px 40px rgba(0,0,0,.3); display:flex; flex-direction:column;">
+  <h2 style="margin-bottom:16px;">Contact Sales</h2>
+
+  <label for="name">Full Name</label>
+  <input id="name" name="name" type="text" placeholder="John Doe" required>
+
+  <label for="email">Email</label>
+  <input id="email" name="email" type="email" placeholder="buyer@company.com" required>
+
+  <label for="msg">Message</label>
+  <textarea id="msg" name="msg" placeholder="I'd like a quote for 5 MT patchouli oil CIF Dubai..."></textarea>
+
+  <button class="btn primary" type="submit" style="margin-top:20px; align-self:flex-start;">Send Inquiry</button>
+</form>
+
+    
+    <!-- Company Info -->
+    <div class="info" style="background:linear-gradient(180deg,#0f2618,#112a1b); border:1px solid rgba(255,255,255,.06); padding:30px; border-radius:16px; box-shadow:0 20px 40px rgba(0,0,0,.3); display:flex; flex-direction:column; gap:10px;">
+      <h2 style="margin-bottom:12px;">Company Info</h2>
+      <p><strong>Bloomfield — Indonesia</strong></p>
+      <p>Email: <a href="mailto:info@skybox.ltd">info@skybox.ltd</a></p>
+      <p>Phone (office): +62 341 5012 009</p>
+      <p>WhatsApp: <a href="https://wa.me/6285179579931">+62 851-7957-9931</a></p>
+      <!-- <p>WhatsApp: <a href="https://wa.me/6285156737977">+62 851-5673-7977 (Huda)</a></p>
+      <p>WhatsApp: <a href="https://wa.me/6281259059931">+62 813-5701-6423 (Dwiky)</a></p> -->
+      <p>Availability: Mon–Fri, 09:00–17:00 (GMT+7)</p>
+      <p class="sub" style="color:var(--muted); margin-top:8px;">We usually reply within 1 business day.</p>
+
+      <!-- Sosial Media -->
+      <div class="socials" style="margin-top:16px; display:flex; gap:12px;">
+        <a href="https://www.facebook.com/bloomfield" target="_blank" aria-label="Facebook">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/facebook.svg" alt="Facebook" width="28" height="28" style="filter: brightness(0) invert(1); transition: transform 0.2s;">
+        </a>
+        <a href="https://www.instagram.com/bloomfield" target="_blank" aria-label="Instagram">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="Instagram" width="28" height="28" style="filter: brightness(0) invert(1); transition: transform 0.2s;">
+        </a>
+        <a href="https://www.instagram.com/bloomfield" target="_blank" aria-label="Instagram">
+          <img src="https://cdn.jsdelivr.net/npm/simple-icons@v9/icons/instagram.svg" alt="map" width="28" height="28" style="filter: brightness(0) invert(1); transition: transform 0.2s;">
+        </a>
+      </div>
+    </div>
+
+  </div>
+
+  <!-- Responsive -->
+  <style>
+    @media (max-width: 980px){
+      .contact { grid-template-columns: 1fr !important; }
+    }
+    .socials a:hover img {
+      transform: scale(1.2);
+    }
+    a { color: inherit; text-decoration: none; }
+    a:hover { color: var(--brand); }
+  </style>
+</section>
+
+    </div>
+  </section>
+
+  <footer>
+    © <span id="y"></span> Bloomfield — Made in Indonesia
+  </footer>
+
+  <!-- Three.js -->
+<script src="https://cdnjs.cloudflare.com/ajax/libs/three.js/r128/three.min.js"></script>
+<script>
+const canvas = document.getElementById('bg');
+const renderer = new THREE.WebGLRenderer({ canvas, antialias:true, alpha:true });
+renderer.setPixelRatio(Math.min(window.devicePixelRatio, 2));
+renderer.setSize(window.innerWidth, window.innerHeight);
+
+const scene = new THREE.Scene();
+const camera = new THREE.PerspectiveCamera(60, window.innerWidth/window.innerHeight, 0.1, 100);
+camera.position.z = 10;
+
+// Lights
+const light = new THREE.PointLight(0xffffff, 1.2);
+light.position.set(5,5,5);
+scene.add(light);
+scene.add(new THREE.AmbientLight(0x335544, .6));
+
+// Gradient backdrop
+const gradGeo = new THREE.PlaneGeometry(50,50);
+const gradMat = new THREE.MeshBasicMaterial({ color: 0x0b1d12, transparent:true, opacity:0.85 });
+const grad = new THREE.Mesh(gradGeo, gradMat);
+grad.position.z = -5;
+scene.add(grad);
+
+// === Partikel hijau halus (optional) ===
+const COUNT = 300;
+const positions = new Float32Array(COUNT*3);
+for(let i=0;i<COUNT;i++){
+  positions[i*3+0] = (Math.random()-0.5)*30;
+  positions[i*3+1] = (Math.random()-0.5)*18;
+  positions[i*3+2] = (Math.random()-0.5)*10;
+}
+const pGeo = new THREE.BufferGeometry();
+pGeo.setAttribute('position', new THREE.BufferAttribute(positions,3));
+const pMat = new THREE.PointsMaterial({ size:0.05, color:0x6ee7b7, transparent:true, opacity:0.7 });
+const points = new THREE.Points(pGeo,pMat);
+scene.add(points);
+
+// === Floating leaves ===
+const leafTexture = new THREE.TextureLoader().load('assets/leaf.png'); // pastikan ada leaf.png
+const leafCount = 150;
+const leafPositions = new Float32Array(leafCount*3);
+for(let i=0;i<leafCount;i++){
+  leafPositions[i*3] = (Math.random()-0.5)*20;
+  leafPositions[i*3+1] = Math.random()*15;
+  leafPositions[i*3+2] = (Math.random()-0.5)*10;
+}
+const leafGeo = new THREE.BufferGeometry();
+leafGeo.setAttribute('position', new THREE.BufferAttribute(leafPositions,3));
+const leafMat = new THREE.PointsMaterial({ size:0.5, map:leafTexture, transparent:true, alphaTest:0.1 });
+const leaves = new THREE.Points(leafGeo, leafMat);
+scene.add(leaves);
+
+// Animate
+let t=0, mouseX=0, mouseY=0;
+function animateLeaves(){
+  for(let i=0;i<leafCount;i++){
+    let y = leafGeo.attributes.position.array[i*3+1];
+    y -= 0.02; // kecepatan daun
+    if(y < -10) y = 15;
+    leafGeo.attributes.position.array[i*3+1] = y;
+  }
+  leafGeo.attributes.position.needsUpdate = true;
+}
+
+function animate(){
+  requestAnimationFrame(animate);
+  t += 0.0025;
+
+  // Partikel bergerak perlahan
+  points.rotation.y += 0.0008;
+  points.rotation.x = Math.sin(t)*0.05 + mouseY*0.02;
+  points.rotation.y += mouseX*0.02;
+
+  // Update daun
+  animateLeaves();
+
+  renderer.render(scene, camera);
+}
+animate();
+
+// Resize
+window.addEventListener('resize', ()=>{
+  camera.aspect = window.innerWidth/window.innerHeight;
+  camera.updateProjectionMatrix();
+  renderer.setSize(window.innerWidth, window.innerHeight);
+});
+
+// Mouse parallax
+window.addEventListener('mousemove', (e)=>{
+  const x = (e.clientX/window.innerWidth) - 0.5;
+  const y = (e.clientY/window.innerHeight) - 0.5;
+  mouseX = x;
+  mouseY = -y;
+});
+</script>
+
+
+</body>
+</html>
