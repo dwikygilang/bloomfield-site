@@ -1,6 +1,6 @@
 # 🌱 Bloomfield — Export-Ready Agriculture from Indonesia
 
-![Bloomfield Banner](assets/indonesian-fields.JPG)
+![Bloomfield Banner](assets/Bloomfield_Logo.png)
 
 Bloomfield connects Indonesia’s rich agricultural heritage to **global markets**.  
 This repository contains the official **corporate website** for Bloomfield, built with:
